@@ -29,10 +29,13 @@ buttons.forEach((button, index) => {
     });
 });
 
+/*
+// Funzione per lo scorrimento automatico delle immagini
 setInterval(() => {
-    currentSlide = (currentSlide + 1) % 5;
-    updateSlide();
-}, 7000);
+    currentSlide = (currentSlide + 1) % 5; // Incrementa l'indice dell'immagine corrente e torna a 0 dopo aver raggiunto l'ultima immagine
+    updateSlide(); // Aggiorna la visualizzazione del carosello
+}, 7000); // Cambia immagine ogni 7 secondi
+*/
 
 // Funzione per mostrare/nascondere il menu a tendina su mobile
 function toggleMenu(event) {
