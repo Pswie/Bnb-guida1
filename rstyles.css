@@ -1,0 +1,46 @@
+
+/* Ristoranti */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ristorante-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.ristorante {
+    width: calc(20% - 20px);
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ristorante-img {
+    width: 100%;
+    height: 200px;
+    background-color: #ddd; /* Colore di sfondo temporaneo */
+}
+
+.ristorante-info {
+    padding: 10px;
+}
+
+.ristorante-info h2 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.ristorante-info p {
+    margin: 0;
+}

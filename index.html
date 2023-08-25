@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carosello Ispirato a Lonely Planet</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Collegamento al file CSS -->
+    <script src="script.js" defer></script> <!-- Collegamento al file JavaScript con l'attributo "defer" -->
+</head>
+<body>
+    <!-- Contenitore principale del sito -->
+    <div class="container">
+        <!-- Intestazione con logo e icona hamburger -->
+        <div class="header">
+            <a href="index.html" class="logo">BnB Langellotti</a>
+            <span class="hamburger-icon" onclick="toggleMenu()">&#9776;</span> <!-- Aggiunto l'evento onclick -->
+            <!-- Menu a tendina -->
+            <div class="dropdown-menu">
+                <a href="ristoranti.html">Ristoranti consigliati</a>
+                <a href="cosa-visitare.html">Cosa Visitare</a>
+                <a href="servizi.html">Servizi</a>
+            </div>
+        </div>
+        <!-- Menu in alto a destra per la versione desktop -->
+        <div class="menu">
+            <a href="ristoranti.html" class="menu-item">Ristoranti consigliati</a>
+            <a href="cosa-visitare.html" class="menu-item">Cosa Visitare</a>
+            <a href="servizi.html" class="menu-item">Servizi</a>
+        </div>
+        <!-- Carosello di immagini -->
+        <div class="carousel">
+            <!-- Ogni div con classe "slide" rappresenta un'immagine del carosello -->
+            <div class="slide" style="background-image: url('images/Pompei1.jpg');"></div>
+            <div class="slide" style="background-image: url('images/Pompei2.webp');"></div>
+            <div class="slide" style="background-image: url('images/Pompei3.jpg');"></div>
+            <div class="slide" style="background-image: url('images/Pompei4.jpg');"></div>
+            <div class="slide" style="background-image: url('images/Pompei5.jpg');"></div>
+        </div>
+        <!-- Selettore di immagini con pallini e sbarretta -->
+        <div class="image-selector">
+            <div class="slider-track">
+                <!-- Ogni bottone rappresenta un pallino del selettore -->
+                <button class="selector-button" data-slide="0"></button>
+                <button class="selector-button" data-slide="1"></button>
+                <button class="selector-button" data-slide="2"></button>
+                <button class="selector-button" data-slide="3"></button>
+                <button class="selector-button" data-slide="4"></button>
+                <!-- Sbarretta sotto il pallino selezionato -->
+                <div class="slider-indicator"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Script per gestire l'apertura e la chiusura del menu a tendina -->
+    <script>
+        function toggleMenu() {
+            const dropdown = document.querySelector('.dropdown-menu');
+            if (dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            } else {
+                dropdown.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
