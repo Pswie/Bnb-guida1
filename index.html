@@ -1,58 +1,42 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <!-- Preload delle immagini -->
-    <link rel="preload" href="images/Pompei1.jpg" as="image">
-    <link rel="preload" href="images/Pompei2.webp" as="image">
-    <link rel="preload" href="images/Pompei3.jpg" as="image">
-    <link rel="preload" href="images/Pompei4.jpg" as="image">
-    <link rel="preload" href="images/Pompei5.jpg" as="image">
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carosello Ispirato a Lonely Planet</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Collegamento al file CSS -->
-    <script src="script.js" defer></script> <!-- Collegamento al file JavaScript con l'attributo "defer" -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Contenitore principale del sito -->
     <div class="container">
-        <!-- Intestazione con logo e icona hamburger -->
         <div class="header">
             <a href="index.html" class="logo">BnB Langellotti</a>
-            <span class="hamburger-icon" onclick="toggleMenu()">&#9776;</span> <!-- Aggiunto l'evento onclick -->
-            <!-- Menu a tendina -->
+            <span class="hamburger-icon" onclick="toggleMenu()">&#9776;</span>
             <div class="dropdown-menu">
                 <a href="ristoranti.html">Ristoranti consigliati</a>
                 <a href="cosa-visitare.html">Cosa Visitare</a>
                 <a href="servizi.html">Servizi</a>
             </div>
         </div>
-        <!-- Menu in alto a destra per la versione desktop -->
         <div class="menu">
             <a href="ristoranti.html" class="menu-item">Ristoranti consigliati</a>
             <a href="cosa-visitare.html" class="menu-item">Cosa Visitare</a>
             <a href="servizi.html" class="menu-item">Servizi</a>
         </div>
-        <!-- Carosello di immagini -->
         <div class="carousel">
-            <!-- Ogni div con classe "slide" rappresenta un'immagine del carosello -->
-            <div class="slide" style="background-image: url('images/Pompei1.jpg');"></div>
-            <div class="slide" style="background-image: url('images/Pompei2.webp');"></div>
-            <div class="slide" style="background-image: url('images/Pompei3.jpg');"></div>
-            <div class="slide" style="background-image: url('images/Pompei4.jpg');"></div>
-            <div class="slide" style="background-image: url('images/Pompei5.jpg');"></div>
+            <div class="slide" data-bg="images/Pompei1.jpg"></div>
+            <div class="slide" data-bg="images/Pompei2.webp"></div>
+            <div class="slide" data-bg="images/Pompei3.jpg"></div>
+            <div class="slide" data-bg="images/Pompei4.jpg"></div>
+            <div class="slide" data-bg="images/Pompei5.jpg"></div>
         </div>
-        <!-- Selettore di immagini con pallini e sbarretta -->
         <div class="image-selector">
             <div class="slider-track">
-                <!-- Ogni bottone rappresenta un pallino del selettore -->
                 <button class="selector-button" data-slide="0"></button>
                 <button class="selector-button" data-slide="1"></button>
                 <button class="selector-button" data-slide="2"></button>
                 <button class="selector-button" data-slide="3"></button>
                 <button class="selector-button" data-slide="4"></button>
-                <!-- Sbarretta sotto il pallino selezionato -->
                 <div class="slider-indicator"></div>
             </div>
         </div>
@@ -67,6 +51,44 @@
                 dropdown.style.display = 'block';
             }
         }
+    </script>
+    <!-- Script per il lazy loading -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let lazyImages = [].slice.call(document.querySelectorAll(".slide"));
+            let active = false;
+
+            const lazyLoad = function() {
+                if (active === false) {
+                    active = true;
+
+                    setTimeout(function() {
+                        lazyImages.forEach(function(lazyImage) {
+                            if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
+                                lazyImage.style.backgroundImage = "url('" + lazyImage.dataset.bg + "')";
+                                lazyImage.removeAttribute("data-bg");
+
+                                lazyImages = lazyImages.filter(function(image) {
+                                    return image !== lazyImage;
+                                });
+
+                                if (lazyImages.length === 0) {
+                                    document.removeEventListener("scroll", lazyLoad);
+                                    window.removeEventListener("resize", lazyLoad);
+                                    window.removeEventListener("orientationchange", lazyLoad);
+                                }
+                            }
+                        });
+
+                        active = false;
+                    }, 200);
+                }
+            };
+
+            document.addEventListener("scroll", lazyLoad);
+            window.addEventListener("resize", lazyLoad);
+            window.addEventListener("orientationchange", lazyLoad);
+        });
     </script>
 </body>
 </html>
