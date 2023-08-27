@@ -126,6 +126,11 @@ body.fade-out {
         margin-left: 10px;
     }
 
+    /* Aumenta il margine superiore del contenuto principale */
+.page-title {
+    margin-top: 60px; /* Aumenta questo valore a seconda delle tue esigenze */
+}
+
     .ristorante-grid {
         flex-direction: column; /* Imposta i ristoranti uno sotto l'altro */
         align-items: center; /* Centra i ristoranti */

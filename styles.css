@@ -151,20 +151,21 @@ body, html {
 /* Stili per la versione mobile */
 @media screen and (max-width: 600px) {
     .hamburger-icon {
-        display: inline-block; /* Mostra l'icona ad hamburger solo su dispositivi mobili */
+        margin: 0;
+        padding: 0;
+        display: inline-block;
     }
     .menu {
-        display: none; /* Nasconde il menu standard su dispositivi mobili */
+        display: none;
     }
     
     .header {
         display: flex;
-        flex-direction: column;
-        gap: 10px;
+        justify-content: space-between;
         text-align: center;
         background-color: #fff;
         border: 1px solid #ddd;
-        padding: 10px;
+        padding: 5px 10px; /* Ridotto il padding verticale */
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
@@ -178,11 +179,10 @@ body, html {
 
     .logo {
         color: black;
-        font-size: 1.8em;
+        font-size: 1.6em; /* Ridotta la dimensione del font */
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 10px;
     }
 
     .logo span {
