@@ -1,47 +1,48 @@
-/* Ristoranti */
+/* Ristoranti, Cose da fare, Servizi */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    overflow: auto;
 }
 
 .page-title {
-    text-align: left; /* Allineato a sinistra */
+    text-align: left;
     margin-top: 20px;
-    margin-left: 20px; /* Aggiunto un margine a sinistra per distanziarlo dal bordo */
+    margin-left: 20px;
 }
 
-.ristorante-grid {
+.item-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 20px;
 }
 
-.ristorante {
+.item {
     width: calc(20% - 20px);
     margin: 10px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.ristorante-img {
+.item-img {
     width: 100%;
     height: 200px;
-    background-color: #ddd; /* Colore di sfondo temporaneo */
+    background-color: #ddd;
 }
 
-.ristorante-info {
+.item-info {
     padding: 10px;
 }
 
-.ristorante-info h2 {
+.item-info h2 {
     margin: 0;
     margin-bottom: 10px;
 }
 
-.ristorante-info p {
+.item-info p {
     margin: 0;
 }
 
@@ -131,17 +132,17 @@ body.fade-out {
     margin-top: 90px; /* Aumenta questo valore a seconda delle tue esigenze */
 }
 
-    .ristorante-grid {
+    .item-grid {
         flex-direction: column; /* Imposta i ristoranti uno sotto l'altro */
         align-items: center; /* Centra i ristoranti */
     }
 
-    .ristorante {
+    .item {
         width: 90%; /* Usa la maggior parte della larghezza dello schermo */
         margin: 5px 0; /* Riduci il margine */
     }
 
-    .ristorante-info h2, .ristorante-info p {
+    .item-info h2, .ristorante-info p {
         font-size: 18px; /* Aumenta la dimensione del font per una migliore leggibilità */
     }
 
