@@ -1,4 +1,3 @@
-
 /* Ristoranti */
 body {
     font-family: Arial, sans-serif;
@@ -7,9 +6,10 @@ body {
     background-color: #f4f4f4;
 }
 
-h1 {
-    text-align: center;
+.page-title {
+    text-align: left; /* Allineato a sinistra */
     margin-top: 20px;
+    margin-left: 20px; /* Aggiunto un margine a sinistra per distanziarlo dal bordo */
 }
 
 .ristorante-grid {
@@ -44,3 +44,49 @@ h1 {
 .ristorante-info p {
     margin: 0;
 }
+
+.image-strip {
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra */
+    border-radius: 5px; /* Bordo arrotondato */
+    position: relative; /* Permette di posizionare l'overlay e il testo in modo assoluto rispetto a questo contenitore */
+}
+
+.image-strip img {
+    width: 100%;
+    height: 60%; /* Ridotto all'50% dell'altezza originale */
+    display: block;
+    transition: transform 0.3s; /* Effetto di zoom al passaggio del mouse */
+    object-fit: cover; /* Questo assicura che l'immagine copra l'intera area senza distorsioni */
+}
+
+
+.image-strip:hover img {
+    transform: scale(1.05); /* Zoom dell'immagine al passaggio del mouse */
+}
+
+/* Overlay */
+.image-strip::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1); /* Overlay nero leggermente trasparente */
+}
+
+/* Testo o Titolo */
+.image-strip .strip-title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombra del testo per migliorare la leggibilità */
+}
+
+
+
