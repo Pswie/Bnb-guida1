@@ -88,5 +88,63 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombra del testo per migliorare la leggibilità */
 }
 
+/* Transizioni in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fadeIn 1s ease;
+}
+
+/* Transizioni out*/
+body.fade-out {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
 
 
+
+/* Stili per dispositivi mobili */
+@media screen and (max-width: 768px) {
+    .page-title {
+        font-size: 24px; /* Aumenta la dimensione del font per una migliore visibilità */
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .ristorante-grid {
+        flex-direction: column; /* Imposta i ristoranti uno sotto l'altro */
+        align-items: center; /* Centra i ristoranti */
+    }
+
+    .ristorante {
+        width: 90%; /* Usa la maggior parte della larghezza dello schermo */
+        margin: 5px 0; /* Riduci il margine */
+    }
+
+    .ristorante-info h2, .ristorante-info p {
+        font-size: 18px; /* Aumenta la dimensione del font per una migliore leggibilità */
+    }
+
+    .image-strip img {
+        height: 50%; /* Riduci l'altezza dell'immagine */
+    }
+
+    .image-strip .strip-title {
+        font-size: 20px; /* Riduci la dimensione del font del titolo */
+    }
+}

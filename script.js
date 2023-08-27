@@ -54,3 +54,14 @@ function toggleMenu(event) {
 document.querySelector('.logo').addEventListener('click', toggleMenu);
 document.querySelector('.hamburger-icon').addEventListener('click', toggleMenu);
 
+
+// Transizioni
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+            window.location = link.href;
+        }, 500);
+    });
+});
