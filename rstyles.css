@@ -51,20 +51,23 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra */
     border-radius: 5px; /* Bordo arrotondato */
-    position: relative; /* Permette di posizionare l'overlay e il testo in modo assoluto rispetto a questo contenitore */
-}
-
-.image-strip img {
-    width: 100%;
-    height: 60%; /* Ridotto all'50% dell'altezza originale */
+    position: sticky; /* fa sì che un elemento rimanga "appiccicato" in una posizione specifica durante lo scorrimento della pagina. */
+    z-index: 999; /* Questo assicura che la striscia con l'immagine sia appena sotto il menu */
+    height: 100px; /* o qualsiasi altro valore che desideri */
+    background-size: cover;
+    background-position: center;
+    top:0px;
     display: block;
     transition: transform 0.3s; /* Effetto di zoom al passaggio del mouse */
-    object-fit: cover; /* Questo assicura che l'immagine copra l'intera area senza distorsioni */
 }
 
 
-.image-strip:hover img {
+.image-strip:hover {
     transform: scale(1.05); /* Zoom dell'immagine al passaggio del mouse */
+}
+
+.desktop-image {
+    background-image: url('images/Striscia_menu.jpg');
 }
 
 /* Overlay */
@@ -152,5 +155,9 @@ body.fade-out {
 
     .image-strip .strip-title {
         font-size: 20px; /* Riduci la dimensione del font del titolo */
+    }
+
+    .desktop-image {
+        background-image: url('images/Striscia_menu_mobile.jpg');
     }
 }
